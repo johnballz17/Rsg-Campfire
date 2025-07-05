@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campfire Crafting</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .container { /* Add your styles */ }
+    </style>
+</head>
+<body>
+    <div id="app" v-if="visible">
+        <div class="container">
+            <h1>Campfire Crafting</h1>
+            <div v-for="category in categories" :key="category.ident">
+                <h2>{{ category.text }}</h2>
+                <ul>
+                    <li v-for="item in consumables[category.ident]" :key="item.Text" @click="handleItemClick(item)">
+                        {{ item.Text }} - {{ item.Desc }}
+                    </li>
+                </ul>
+            </div>
+            <button @click="closeView">Exit</button>
+            <div v-if="showInput">
+                <h3>{{ InputCraftText }}</h3>
+                <input v-model.number="quantity" type="number" :min="min" :max="max" @input="formatQuantity">
+                <button @click="craftItem">Craft</button>
+                <button @click="showInput = false">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
