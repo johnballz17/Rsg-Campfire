@@ -2,5 +2,5 @@
 A simple campfire mod becuase I didn't see any on github.
 Comes with working menu and debugs to make sure its working.
 Add as many items as you like.
-Modify if your liking. 
+Modify to your liking. 
 Have fun!
